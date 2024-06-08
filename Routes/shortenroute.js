@@ -6,16 +6,17 @@ const router = express.Router();
 /**
  * @swagger
  * tags:
- *   name: URL Shortener
- *   description: API for shortening URLs
+ *   name: Shorten
+ *   description: Operations related to URL shortening
  */
 
 /**
  * @swagger
- * /shorten:
+ * /shortenimagie:
  *   post:
  *     summary: Shorten a URL
- *     tags: [URL Shortener]
+ *     description: Shortens a given URL using Shareaholic service and saves it to Firestore.
+ *     tags: [Shorten]
  *     requestBody:
  *       required: true
  *       content:
@@ -25,13 +26,11 @@ const router = express.Router();
  *             properties:
  *               url:
  *                 type: string
- *                 description: The URL to shorten
- *               imageId:
- *                 type: string
- *                 description: The ID of the image document to update with the shortened URL
+ *                 description: URL to be shortened
+ *                 example: https://web.whatsapp.com/
  *     responses:
  *       200:
- *         description: URL shortened successfully
+ *         description: Successful operation
  *         content:
  *           application/json:
  *             schema:
@@ -39,8 +38,10 @@ const router = express.Router();
  *               properties:
  *                 shortUrl:
  *                   type: string
+ *                   description: Shortened URL
+ *                   example: https://shrlc.com/abc123
  *       400:
- *         description: Bad request
+ *         description: Invalid request
  *       500:
  *         description: Internal server error
  */
